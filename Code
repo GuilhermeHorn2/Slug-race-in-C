@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+int main()
+{   int n;
+    printf("Enter the number of slugs: ");
+    scanf("%d",&n);
+
+    int vels[n];
+    for(int i = 0;i < n;i++){
+        int v;
+        printf("Enter the velocity :");
+        scanf("%d",&v);
+        vels[i] = v;
+    }
+    int h;
+    printf("Enter the number of hours of the race :");
+    scanf("%d",&h);
+
+    int a = 0;
+    int b = 0;
+    int c = 0;
+
+    for(int i = 0;i < n;i++){
+        int a2 = 0;
+        int b2 = 0;
+        int c2 = 0;
+
+        if(vels[i] <= 10){
+            a2 = vels[i];
+            if (a2 >= a){
+                a = a2;
+            }
+        }
+
+        if(vels[i] > 10){
+            if(vels[i] <= 20){
+                b2 = vels[i];
+                if (b2 >= b){
+                  b = b2;
+            }
+            }
+        }
+        else if(vels[i] > 20){
+            if(vels[i] <= 100){
+                c2 = vels[i];
+                if (c2 >= c){
+                   c = c2;
+            }
+            }
+        }
+    }
+    /*printf("%d,%d,%d",a,b,c);*/
+    int r;
+    if(h <= 3){
+        if(h > 2){
+            r = a;
+        }
+    }
+    else if(h <= 2){
+        if(h > 1){
+            r = b;
+        }
+    }
+    else{
+        r = c;
+    }
+    printf("The speed of the winner slug is: %d",r);
+
+
+
+ return 0;
+}
